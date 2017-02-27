@@ -110,33 +110,32 @@ endfunction
 " | Color Variables |
 " +-----------------+
 
-let s:red = { "gui": "#E06C75", "cterm": "204", "cterm16": "1" }
-let s:dark_red = { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }
+let s:red = { "gui": "{{=it.red.gui}}", "cterm": "{{=it.red.cterm}}", "cterm16": "{{=it.red.cterm16}}" }
+let s:dark_red = { "gui": "{{=it.dark_red.gui}}", "cterm": "{{=it.dark_red.cterm}}", "cterm16": "{{=it.dark_red.cterm16}}" }
 
-let s:green = { "gui": "#98C379", "cterm": "114", "cterm16": "2" }
+let s:green = { "gui": "{{=it.green.gui}}", "cterm": "{{=it.green.cterm}}", "cterm16": "{{=it.green.cterm16}}" }
 
-let s:yellow = { "gui": "#E5C07b", "cterm": "180", "cterm16": "3" }
-let s:dark_yellow = { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }
+let s:yellow = { "gui": "{{=it.yellow.gui}}", "cterm": "{{=it.yellow.cterm}}", "cterm16": "{{=it.yellow.cterm16}}" }
+let s:dark_yellow = { "gui": "{{=it.dark_yellow.gui}}", "cterm": "{{=it.dark_yellow.cterm}}", "cterm16": "{{=it.dark_yellow.cterm16}}" }
 
-let s:blue = { "gui": "#61AFEF", "cterm": "39", "cterm16": "4" }
+let s:blue = { "gui": "{{=it.blue.gui}}", "cterm": "{{=it.blue.cterm}}", "cterm16": "{{=it.blue.cterm16}}" }
 
-let s:purple = { "gui": "#C678DD", "cterm": "170", "cterm16": "5" }
+let s:purple = { "gui": "{{=it.purple.gui}}", "cterm": "{{=it.purple.cterm}}", "cterm16": "{{=it.purple.cterm16}}" }
 
-let s:cyan = { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }
+let s:cyan = { "gui": "{{=it.cyan.gui}}", "cterm": "{{=it.cyan.cterm}}", "cterm16": "{{=it.cyan.cterm16}}" }
 
-let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16": "7" }
+let s:white = { "gui": "{{=it.white.gui}}", "cterm": "{{=it.white.cterm}}", "cterm16": "{{=it.white.cterm16}}" }
 
-let s:black = { "gui": "#282C34", "cterm": "235", "cterm16": "0" }
-let s:ultra_black = { "gui": "#000000", "cterm": "16", "cterm16": "0" }
+let s:black = { "gui": "{{=it.black.gui}}", "cterm": "{{=it.black.cterm}}", "cterm16": "{{=it.black.cterm16}}" }
 let s:visual_black = { "gui": "NONE", "cterm": "NONE", "cterm16": s:black.cterm16 } " Black out selected text in 16-color visual mode
 
-let s:comment_grey = { "gui": "#5C6370", "cterm": "59", "cterm16": "15" }
-let s:gutter_fg_grey = { "gui": "#636D83", "cterm": "238", "cterm16": "15" }
-let s:cursor_grey = { "gui": "#2C323C", "cterm": "236", "cterm16": "8" }
-let s:visual_grey = { "gui": "#3E4452", "cterm": "237", "cterm16": "15" }
-let s:menu_grey = { "gui": s:visual_grey.gui, "cterm": s:visual_grey.cterm, "cterm16": "8" }
-let s:special_grey = { "gui": "#3B4048", "cterm": "238", "cterm16": "15" }
-let s:vertsplit = { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }
+let s:comment_grey = { "gui": "{{=it.comment_grey.gui}}", "cterm": "{{=it.comment_grey.cterm}}", "cterm16": "{{=it.comment_grey.cterm16}}" }
+let s:gutter_fg_grey = { "gui": "{{=it.gutter_fg_grey.gui}}", "cterm": "{{=it.gutter_fg_grey.cterm}}", "cterm16": "{{=it.gutter_fg_grey.cterm16}}" }
+let s:cursor_grey = { "gui": "{{=it.cursor_grey.gui}}", "cterm": "{{=it.cursor_grey.cterm}}", "cterm16": "{{=it.cursor_grey.cterm16}}" }
+let s:visual_grey = { "gui": "{{=it.visual_grey.gui}}", "cterm": "{{=it.visual_grey.cterm}}", "cterm16": "{{=it.visual_grey.cterm16}}" }
+let s:menu_grey = { "gui": s:visual_grey.gui, "cterm": s:visual_grey.cterm, "cterm16": "{{=it.menu_grey.cterm16}}" }
+let s:special_grey = { "gui": "{{=it.special_grey.gui}}", "cterm": "{{=it.special_grey.cterm}}", "cterm16": "{{=it.special_grey.cterm16}}" }
+let s:vertsplit = { "gui": "{{=it.vertsplit.gui}}", "cterm": "{{=it.vertsplit.cterm}}", "cterm16": "{{=it.vertsplit.cterm16}}" }
 
 " +---------------------------------------------------------+
 " | Syntax Groups (descriptions and ordering from `:h w18`) |
@@ -205,7 +204,7 @@ call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character und
 call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg", {}) " more-prompt
 call s:h("NonText", { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
-call s:h("Normal", { "fg": s:white, "bg": s:ultra_black}) " normal text
+call s:h("Normal", { "fg": s:white, "bg": s:black }) " normal text
 call s:h("Pmenu", { "bg": s:menu_grey }) " Popup menu: normal item.
 call s:h("PmenuSel", { "fg": s:black, "bg": s:blue }) " Popup menu: selected item.
 call s:h("PmenuSbar", { "bg": s:special_grey }) " Popup menu: scrollbar.
@@ -493,7 +492,7 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 " +------------------------+
 
 if has("nvim")
-  let g:terminal_color_0 =  s:ultra_black.gui
+  let g:terminal_color_0 =  s:black.gui
   let g:terminal_color_1 =  s:red.gui
   let g:terminal_color_2 =  s:green.gui
   let g:terminal_color_3 =  s:yellow.gui
